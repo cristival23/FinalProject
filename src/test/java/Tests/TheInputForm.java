@@ -1,9 +1,6 @@
 package Tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
@@ -35,17 +32,19 @@ public class TheInputForm {
 
         WebElement countryField = webDriver.findElement(By.id("country"));
         countryField.click();
+//        WebElement countryField = webDriver.findElement(By.id("country"));
+//        countryField.sendKeys("Romania");
+//        countryField.sendKeys(Keys.ENTER);
 
         WebElement notesField = webDriver.findElement(By.id("notes"));
-        String notesValue = "Vacanta";
+        String notesValue = "Vacant";
         notesField.sendKeys(notesValue);
 
         WebElement submitButton = webDriver.findElement(By.xpath("//input[@type='submit']"));
         submitButton.click();
 
-
-
-
+        WebElement returnButton = webDriver.findElement(By.id("backtoform"));
+        returnButton.click();
 
 
     }

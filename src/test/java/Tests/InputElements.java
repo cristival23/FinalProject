@@ -1,9 +1,6 @@
 package Tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
@@ -38,8 +35,14 @@ public class InputElements {
         WebElement fileField = webDriver.findElement((By.name("filename")));
         fileField.sendKeys(new File("src/test/resources/3d render.jpg").getAbsolutePath());
 
-        WebElement submitButton = webDriver.findElement(By.xpath("//input[@type='submit']"));
-        submitButton.click();
+        WebElement dropDownField = webDriver.findElement(By.name("dropdown"));
+        dropDownField.sendKeys("dd5");
+        dropDownField.sendKeys(Keys.ENTER);
+
+
+//
+//        WebElement submitButton = webDriver.findElement(By.xpath("//input[@type='submit']"));
+//        submitButton.click();
 
 
     }
