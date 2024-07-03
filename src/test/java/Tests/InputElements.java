@@ -1,5 +1,8 @@
 package Tests;
 
+import HelperMethods.ElementMethods;
+import HelperMethods.WindowMethods;
+import SharedData.SharedData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -9,27 +12,36 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-public class InputElements {
-    public WebDriver webDriver;
+public class InputElements extends SharedData {
+//    public WebDriver webDriver;
+
+
 
     @Test
     public void theInputForm() {
-        webDriver = new ChromeDriver();
-        webDriver.get("https://testpages.eviltester.com/styled/index.html");
-        webDriver.manage().window().maximize();
-        JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        js.executeScript("window.scrollBy(0,450)", "");
+        ElementMethods elementMethods = new ElementMethods(webDriver);
+//        WindowMethods windowMethods = new WindowMethods(webDriver);
 
+//        elementMethods.scrollElementByPixel(0,450);
+//        webDriver = new ChromeDriver();
+//        webDriver.get("https://testpages.eviltester.com/styled/index.html");
+//        webDriver.manage().window().maximize();
+//        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+
+        elementMethods.scrollElementByPixel(0,450);
         WebElement htmlFormTestPage = webDriver.findElement(By.id("htmlformtest"));
-        htmlFormTestPage.click();
+//        htmlFormTestPage.click();
+        elementMethods.clickElement(htmlFormTestPage);
 
         WebElement userNameField = webDriver.findElement(By.name("username"));
         String userNameValue = "cristival";
         userNameField.sendKeys(userNameValue);
 
+
+
         WebElement passwordField = webDriver.findElement(By.name("password"));
         String passwordValue = "minion";
-        passwordField.sendKeys(passwordValue);
+//        passwordField.sendKeys(passwordValue);
 
         WebElement textCommentField = webDriver.findElement(By.name("comments"));
         String textCommentValue = "Ana are mere si nu vinde pere:))";
@@ -93,6 +105,7 @@ public class InputElements {
             radioField.click();
 
         }
+
     }
 
 }

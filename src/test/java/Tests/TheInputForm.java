@@ -1,26 +1,30 @@
 package Tests;
 
+import HelperMethods.ElementMethods;
+import SharedData.SharedData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TheInputForm {
-    public WebDriver webDriver;
+import java.util.List;
+
+public class TheInputForm extends SharedData {
+
 
     @Test
     public void theInputForm(){
-        webDriver = new ChromeDriver();
-        webDriver.get("https://testpages.eviltester.com/styled/index.html");
-        webDriver.manage().window().maximize();
-        JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        js.executeScript("window.scrollBy(0,450)", "");
+        ElementMethods elementMethods = new ElementMethods(webDriver);
+
 
         WebElement formInputPage = webDriver.findElement(By.id("inputvalidation"));
-        formInputPage.click();
+//        formInputPage.click();
+        elementMethods.clickElement(formInputPage);
 
         WebElement firstNameField = webDriver.findElement(By.id("firstname"));
         String firstNameValue = "Voicu";
         firstNameField.sendKeys(firstNameValue);
+
 
         WebElement sureNameField = webDriver.findElement(By.id("surname"));
         String sureNameValue = "Cristian Valentin";
@@ -31,7 +35,8 @@ public class TheInputForm {
         ageField.sendKeys(ageValue);
 
         WebElement countryField = webDriver.findElement(By.id("country"));
-        countryField.click();
+//        countryField.click();
+        elementMethods.clickElement(countryField);
 //        WebElement countryField = webDriver.findElement(By.id("country"));
 //        countryField.sendKeys("Romania");
 //        countryField.sendKeys(Keys.ENTER);
@@ -41,10 +46,19 @@ public class TheInputForm {
         notesField.sendKeys(notesValue);
 
         WebElement submitButton = webDriver.findElement(By.xpath("//input[@type='submit']"));
-        submitButton.click();
+//        submitButton.click();
+        elementMethods.clickElement(submitButton);
 
         WebElement returnButton = webDriver.findElement(By.id("backtoform"));
-        returnButton.click();
+//        returnButton.click();
+        elementMethods.clickElement(returnButton);
+
+//        List<WebElement> labelFields = webDriver.findElements(By.xpath("//ul/li"));
+//        List<WebElement> valueFields = webDriver.findElements(By.xpath("//ul/li/ul/li"));
+//
+//        Assert.assertEquals(labelFields.get(0).getText(),"Firstname");
+//        Assert.assertEquals(labelFields.get(0).getText(),firstNameValue);
+
 
 
     }

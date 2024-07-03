@@ -1,40 +1,46 @@
 package Tests;
 
+import HelperMethods.AlertMethods;
+import HelperMethods.ElementMethods;
+import SharedData.SharedData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class FramesTestPage {
-    public WebDriver webDriver;
+public class FramesTestPage extends SharedData {
 
     @Test
     public void theInputForm() {
-        webDriver = new ChromeDriver();
-        webDriver.get("https://testpages.eviltester.com/styled/index.html");
-        webDriver.manage().window().maximize();
-        JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        js.executeScript("window.scrollBy(0,450)", "");
+        ElementMethods elementMethods = new ElementMethods(webDriver);
+        AlertMethods alertMethods = new AlertMethods(webDriver);
 
         WebElement framesTestPage = webDriver.findElement(By.id("alerttest"));
-        framesTestPage.click();
+//        framesTestPage.click();
+        elementMethods.clickElement(framesTestPage);
 
-        js.executeScript("window.scrollBy(0,450)", "");
+//        js.executeScript("window.scrollBy(0,450)", "");
         WebElement alertBoxButton = webDriver.findElement(By.id("alertexamples"));
-        alertBoxButton.click();
-        Alert firstAlert = webDriver.switchTo().alert();
-        firstAlert.accept();
+//        alertBoxButton.click();
+        elementMethods.clickElement(alertBoxButton);
+//        Alert firstAlert = webDriver.switchTo().alert();
+//        firstAlert.accept();
+        alertMethods.acceptAlert();
 
         WebElement confirmBoxButton = webDriver.findElement(By.id("confirmexample"));
-        confirmBoxButton.click();
-        Alert secondAlert = webDriver.switchTo().alert();
+//        confirmBoxButton.click();
+        elementMethods.clickElement(confirmBoxButton);
+//        Alert secondAlert = webDriver.switchTo().alert();
 //        secondAlert.dismiss();
-        secondAlert.accept();
+        alertMethods.cancelAlert();
+
 
         WebElement promptBoxButton = webDriver.findElement(By.id("promptexample"));
-        promptBoxButton.click();
+//        promptBoxButton.click();
+        elementMethods.clickElement(promptBoxButton);
         String text = "Confirm";
-        Alert thirdAlert = webDriver.switchTo().alert();
-        thirdAlert.sendKeys(text);
-        thirdAlert.accept();
+//        Alert thirdAlert = webDriver.switchTo().alert();
+//        thirdAlert.sendKeys(text);
+//        thirdAlert.accept();
+        alertMethods.fillAlert(text);
     }
 }
