@@ -36,7 +36,6 @@ public class AlertMethods {
         Alert thirdAlert = webDriver.switchTo().alert();
         thirdAlert.sendKeys(value);
         thirdAlert.accept();
-
     }
 
 }

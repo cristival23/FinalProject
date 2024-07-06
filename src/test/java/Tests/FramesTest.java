@@ -4,29 +4,32 @@ import HelperMethods.AlertMethods;
 import HelperMethods.ElementMethods;
 import SharedData.SharedData;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class FramesTestPage extends SharedData {
+public class FramesTest extends SharedData {
 
     @Test
     public void theInputForm() {
-        ElementMethods elementMethods = new ElementMethods(webDriver);
-        AlertMethods alertMethods = new AlertMethods(webDriver);
+        ElementMethods elementMethods = new ElementMethods(getWebDriver());
+        AlertMethods alertMethods = new AlertMethods(getWebDriver());
 
-        WebElement framesTestPage = webDriver.findElement(By.id("alerttest"));
+        WebElement seleniumTestWebsite = getWebDriver().findElement(By.xpath("//a[contains(text(), 'Selenium Test Pages')]"));
+        elementMethods.clickElement(seleniumTestWebsite);
+
+
+        WebElement framesTestPage = getWebDriver().findElement(By.id("alerttest"));
 //        framesTestPage.click();
         elementMethods.clickElement(framesTestPage);
 
 //        js.executeScript("window.scrollBy(0,450)", "");
-        WebElement alertBoxButton = webDriver.findElement(By.id("alertexamples"));
+        WebElement alertBoxButton = getWebDriver().findElement(By.id("alertexamples"));
 //        alertBoxButton.click();
         elementMethods.clickElement(alertBoxButton);
 //        Alert firstAlert = webDriver.switchTo().alert();
 //        firstAlert.accept();
         alertMethods.acceptAlert();
 
-        WebElement confirmBoxButton = webDriver.findElement(By.id("confirmexample"));
+        WebElement confirmBoxButton = getWebDriver().findElement(By.id("confirmexample"));
 //        confirmBoxButton.click();
         elementMethods.clickElement(confirmBoxButton);
 //        Alert secondAlert = webDriver.switchTo().alert();
@@ -34,7 +37,7 @@ public class FramesTestPage extends SharedData {
         alertMethods.cancelAlert();
 
 
-        WebElement promptBoxButton = webDriver.findElement(By.id("promptexample"));
+        WebElement promptBoxButton = getWebDriver().findElement(By.id("promptexample"));
 //        promptBoxButton.click();
         elementMethods.clickElement(promptBoxButton);
         String text = "Confirm";
