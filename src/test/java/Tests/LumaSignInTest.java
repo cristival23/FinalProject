@@ -2,6 +2,7 @@ package Tests;
 
 import HelperMethods.ElementMethods;
 import Pages.HomePageLuma;
+import Pages.LumaSignInPage;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -16,31 +17,16 @@ public class LumaSignInTest extends SharedData {
         HomePageLuma homePageLuma = new HomePageLuma(getWebDriver());
         homePageLuma.navidateToHomePageLuma();
 
-//        elementMethods.scrollElementByPixel(0, 450);
-//        WebElement lumaWebsiteHome = getWebDriver().findElement(By.xpath("//a[contains(text(), 'Luma – Magento eCommerce')]"));
-//        elementMethods.waitVisibleElement(lumaWebsiteHome);
-//        elementMethods.clickElement(lumaWebsiteHome);
-//
-//        WebElement stickyBoxHide = getWebDriver().findElement(By.className("ea-stickybox-hide"));
-//        elementMethods.waitVisibleElement(stickyBoxHide);
-//        elementMethods.clickElement(stickyBoxHide);
 
-        WebElement SignInButton = getWebDriver().findElement(By.linkText("Sign In"));
-        elementMethods.waitVisibleElement(SignInButton);
-        elementMethods.clickElement(SignInButton);
+        LumaSignInPage lumaSignInPage = new LumaSignInPage(getWebDriver());
+        lumaSignInPage.clickSignInButton();
 
-        WebElement emailField = getWebDriver().findElement(By.id("email"));
         String emailValue = "voicucristianvalentin1993@gmail.com";
-        elementMethods.waitVisibleElement(emailField);
-        elementMethods.fillElement(emailField, emailValue);
+        String passwordValue = "Parola23!";
 
-        WebElement passwordField = getWebDriver().findElement(By.id("pass"));
-        String passwordValue =  "Parola23!";
-        elementMethods.waitVisibleElement(passwordField);
-        elementMethods.fillElement(passwordField,passwordValue);
+        lumaSignInPage.fillEmailField(emailValue);
+        lumaSignInPage.fillPasswordField(passwordValue);
+        lumaSignInPage.clickSingInButtonField();
 
-        WebElement SingInButtonField = getWebDriver().findElement(By.cssSelector("button.action.login.primary"));
-        elementMethods.waitVisibleElement(SingInButtonField);
-        elementMethods.clickElement(SingInButtonField);
     }
 }

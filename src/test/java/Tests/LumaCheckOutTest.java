@@ -1,20 +1,27 @@
 package Tests;
 
 import HelperMethods.ElementMethods;
-import Pages.HomePageLuma;
-import Pages.LumaWhatsNewPage;
+import Pages.*;
 import SharedData.SharedData;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class LumaWhatsNewTest extends SharedData {
+public class LumaCheckOutTest extends SharedData {
     @Test
-    public void WhatsNew() {
+    public void LumaSignIn() {
         ElementMethods elementMethods = new ElementMethods(getWebDriver());
 
         HomePageLuma homePageLuma = new HomePageLuma(getWebDriver());
         homePageLuma.navidateToHomePageLuma();
+
+        LumaSignInPage lumaSignInPage = new LumaSignInPage(getWebDriver());
+        lumaSignInPage.clickSignInButton();
+
+        String emailValue = "voicucristianvalentin1993@gmail.com";
+        String passwordValue = "Parola23!";
+
+        lumaSignInPage.fillEmailField(emailValue);
+        lumaSignInPage.fillPasswordField(passwordValue);
+        lumaSignInPage.clickSingInButtonField();
 
         LumaWhatsNewPage lumaWhatsNewPage = new LumaWhatsNewPage(getWebDriver());
         lumaWhatsNewPage.clickWhatsNewButton();
@@ -27,5 +34,11 @@ public class LumaWhatsNewTest extends SharedData {
         lumaWhatsNewPage.clickHoodieMarcoSizeSButton();
         lumaWhatsNewPage.clickHoodieMarcoColorBlueButton();
         lumaWhatsNewPage.clickAddToCartButton();
+
+        LumaCheckOutPage lumaCheckOutPage =new LumaCheckOutPage(getWebDriver());
+        lumaCheckOutPage.clickCartButton();
+        lumaCheckOutPage.clickCheckOutButton();
+
     }
+
 }
