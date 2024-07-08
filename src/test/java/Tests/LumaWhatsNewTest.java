@@ -1,6 +1,7 @@
 package Tests;
 
 import HelperMethods.ElementMethods;
+import Pages.HomePageLuma;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,14 +12,17 @@ public class LumaWhatsNewTest extends SharedData {
     public void WhatsNew() {
         ElementMethods elementMethods = new ElementMethods(getWebDriver());
 
-        elementMethods.scrollElementByPixel(0, 450);
-        WebElement lumaWebsiteHome = getWebDriver().findElement(By.xpath("//a[contains(text(), 'Luma – Magento eCommerce')]"));
-        elementMethods.waitVisibleElement(lumaWebsiteHome);
-        elementMethods.clickElement(lumaWebsiteHome);
+        HomePageLuma homePageLuma = new HomePageLuma(getWebDriver());
+        homePageLuma.navidateToHomePageLuma();
 
-        WebElement stickyBoxHide = getWebDriver().findElement(By.className("ea-stickybox-hide"));
-        elementMethods.waitVisibleElement(stickyBoxHide);
-        elementMethods.clickElement(stickyBoxHide);
+//        elementMethods.scrollElementByPixel(0, 450);
+//        WebElement lumaWebsiteHome = getWebDriver().findElement(By.xpath("//a[contains(text(), 'Luma – Magento eCommerce')]"));
+//        elementMethods.waitVisibleElement(lumaWebsiteHome);
+//        elementMethods.clickElement(lumaWebsiteHome);
+//
+//        WebElement stickyBoxHide = getWebDriver().findElement(By.className("ea-stickybox-hide"));
+//        elementMethods.waitVisibleElement(stickyBoxHide);
+//        elementMethods.clickElement(stickyBoxHide);
 
         WebElement whatsNewButton = getWebDriver().findElement(By.id("ui-id-3"));
         elementMethods.waitVisibleElement(whatsNewButton);

@@ -1,6 +1,7 @@
 package Tests;
 
 import HelperMethods.ElementMethods;
+import Pages.HomePageLuma;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,14 +13,17 @@ public class LumaSignInTest extends SharedData {
     public void LumaSignIn() {
         ElementMethods elementMethods = new ElementMethods(getWebDriver());
 
-        elementMethods.scrollElementByPixel(0, 450);
-        WebElement lumaWebsiteHome = getWebDriver().findElement(By.xpath("//a[contains(text(), 'Luma – Magento eCommerce')]"));
-        elementMethods.waitVisibleElement(lumaWebsiteHome);
-        elementMethods.clickElement(lumaWebsiteHome);
+        HomePageLuma homePageLuma = new HomePageLuma(getWebDriver());
+        homePageLuma.navidateToHomePageLuma();
 
-        WebElement stickyBoxHide = getWebDriver().findElement(By.className("ea-stickybox-hide"));
-        elementMethods.waitVisibleElement(stickyBoxHide);
-        elementMethods.clickElement(stickyBoxHide);
+//        elementMethods.scrollElementByPixel(0, 450);
+//        WebElement lumaWebsiteHome = getWebDriver().findElement(By.xpath("//a[contains(text(), 'Luma – Magento eCommerce')]"));
+//        elementMethods.waitVisibleElement(lumaWebsiteHome);
+//        elementMethods.clickElement(lumaWebsiteHome);
+//
+//        WebElement stickyBoxHide = getWebDriver().findElement(By.className("ea-stickybox-hide"));
+//        elementMethods.waitVisibleElement(stickyBoxHide);
+//        elementMethods.clickElement(stickyBoxHide);
 
         WebElement SignInButton = getWebDriver().findElement(By.linkText("Sign In"));
         elementMethods.waitVisibleElement(SignInButton);
