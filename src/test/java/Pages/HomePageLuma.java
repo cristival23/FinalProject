@@ -17,7 +17,6 @@ public class HomePageLuma extends BasePageLuma {
     @FindBy(className = "ea-stickybox-hide")
     private WebElement stickyBoxHide;
 
-
     public void navidateToHomePageLuma() {
         elementMethods.scrollElementByPixel(0, 450);
         elementMethods.clickElement(lumaWebsiteHome);

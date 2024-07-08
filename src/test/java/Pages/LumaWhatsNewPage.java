@@ -35,26 +35,32 @@ public class LumaWhatsNewPage extends BasePageLuma {
         elementMethods.waitVisibleElement(whatsNewButton);
         elementMethods.clickElement(whatsNewButton);
     }
+
     public void clickHoodiesButton(){
         elementMethods.waitVisibleElement(hoodiesButton);
         elementMethods.clickElement(hoodiesButton);
     }
+
     public void clickSizeButton() {
         elementMethods.waitVisibleElement(sizeButton);
         elementMethods.clickElement(sizeButton);
     }
+
     public void clickSizeSButton() {
         elementMethods.waitVisibleElement(sizeSButton);
         elementMethods.clickElement(sizeSButton);
     }
+
     public void clickColorButton() {
         elementMethods.waitVisibleElement(colorButton);
         elementMethods.clickElement(colorButton);
     }
+
     public void clickBlueButton(){
         elementMethods.waitVisibleElement(blueButton);
         elementMethods.clickElement(blueButton);
     }
+
     public void clickHoodieMarcoButton() {
         elementMethods.waitVisibleElement(hoodieMarcoButton);
         elementMethods.clickElement(hoodieMarcoButton);
@@ -63,10 +69,12 @@ public class LumaWhatsNewPage extends BasePageLuma {
         elementMethods.waitVisibleElement(hoodieMarcoSizeSButton);
         elementMethods.clickElement(hoodieMarcoSizeSButton);
     }
+
     public void clickHoodieMarcoColorBlueButton() {
         elementMethods.waitVisibleElement(hoodieMarcoColorBlueButton);
         elementMethods.clickElement(hoodieMarcoColorBlueButton);
     }
+
     public void clickAddToCartButton() {
         elementMethods.waitVisibleElement(addToCartButton);
         elementMethods.clickElement(addToCartButton);

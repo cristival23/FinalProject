@@ -11,47 +11,31 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputElementsTest extends SharedData {
-//    public WebDriver webDriver;
-
-
 
     @Test
     public void theInputForm() {
         ElementMethods elementMethods = new ElementMethods(getWebDriver());
-//        WindowMethods windowMethods = new WindowMethods(webDriver);
 
-//        elementMethods.scrollElementByPixel(0,450);
-//        webDriver = new ChromeDriver();
-//        webDriver.get("https://testpages.eviltester.com/styled/index.html");
-//        webDriver.manage().window().maximize();
-//        JavascriptExecutor js = (JavascriptExecutor) webDriver;
         WebElement seleniumTestWebsite = getWebDriver().findElement(By.xpath("//a[contains(text(), 'Selenium Test Pages')]"));
         elementMethods.clickElement(seleniumTestWebsite);
 
         elementMethods.scrollElementByPixel(0,450);
         WebElement htmlFormTestPage = getWebDriver().findElement(By.id("htmlformtest"));
-//        htmlFormTestPage.click();
         elementMethods.clickElement(htmlFormTestPage);
 
         WebElement userNameField = getWebDriver().findElement(By.name("username"));
         String userNameValue = "cristival";
-//        userNameField.sendKeys(userNameValue);
         elementMethods.fillElement(userNameField, userNameValue);
 
         WebElement passwordField = getWebDriver().findElement(By.name("password"));
         String passwordValue = "minion";
-//        passwordField.sendKeys(passwordValue);
-//        elementMethods.fillElement(passwordField,passwordValue);
 
         WebElement textCommentField = getWebDriver().findElement(By.name("comments"));
         String textCommentValue = "Ana are mere si nu vinde pere:))";
-//        textCommentField.sendKeys(textCommentValue);
         elementMethods.fillElement(textCommentField,textCommentValue);
 
         String filePatch = "src/test/resources/3d render.jpg";
         WebElement fileField = getWebDriver().findElement((By.name("filename")));
-//        fileField.sendKeys(new File("src/test/resources/3d render.jpg").getAbsolutePath());
-//        fileField.sendKeys(new File(filePatch).getAbsolutePath());
         elementMethods.fillElement(passwordField,new File(filePatch).getAbsolutePath());
 
 
@@ -90,13 +74,7 @@ public class InputElementsTest extends SharedData {
 
         String dropDownValue= "ddr5";
         WebElement dropDownField = getWebDriver().findElement(By.name("dropdown"));
-//        dropDownField.sendKeys("dd5");
-//        dropDownField.sendKeys(Keys.ENTER);
         elementMethods.fillPressElement(dropDownField,dropDownValue,Keys.ENTER);
-
-//        WebElement submitButton = webDriver.findElement(By.xpath("//input[@type='submit']"));
-//        submitButton.click();
-
     }
 
     public void radioField(String radio) {
